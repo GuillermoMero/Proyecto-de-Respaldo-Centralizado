@@ -1,0 +1,12 @@
+services:
+  samba-ad-dc:
+    image: dperson/samba:latest
+    container_name: samba-ad-dc
+    hostname: dc1
+    restart: always
+    environment:
+      - SAMBA_DOMAIN=EMPRESA
+      - SAMBA_PASSWORD=TuPasswordSeguro
+      - SAMBA_REALM=EMPRESA.LOCAL
+    volumes:
+      - ./samba-data:/mount
